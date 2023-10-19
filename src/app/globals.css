@@ -87,6 +87,14 @@ body {
   ::marker {
     @apply text-gray-600;
   }
+
+  pre {
+    @apply mb-4;
+    @apply p-4;
+    @apply rounded-md;
+    @apply bg-gray-800;
+    @apply text-gray-100;
+  }
 }
 
 @layer utilities {

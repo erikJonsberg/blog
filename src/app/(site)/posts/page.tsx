@@ -1,4 +1,4 @@
-import PostsGrid from "@/src/app/components/posts/posts-grid";
+import PostsGrid from "@/src/app/(site)/components/posts/posts-grid";
 
 export default function AllPosts() {
 	return (

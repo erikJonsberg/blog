@@ -1,6 +1,6 @@
-import "./globals.css";
+import "../globals.css";
 import type { Metadata } from "next";
-import { Inter, Nunito } from "next/font/google";
+import { Inter, Montserrat, Space_Mono } from "next/font/google";
 import Header from "./components/layout/header";
 import Providers from "./components/providers/providers";
 import { Suspense } from "react";
@@ -11,10 +11,18 @@ const inter = Inter({
 	variable: "--inter-font",
 });
 
-const nunito = Nunito({
+const montserrat = Montserrat({
 	subsets: ["latin"],
 	display: "swap",
-	variable: "--nunito-font",
+	variable: "--montserrat-font",
+});
+
+const space = Space_Mono({
+	style: ["normal", "italic"],
+	weight: ["400", "700"],
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--space-font",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +42,7 @@ export default async function RootLayout({
 	return (
 		<html lang='en' className='dark' style={style}>
 			<body
-				className={`${inter.variable} ${nunito.variable} font-body flex-col mx-auto max-w-full min-h-screen`}
+				className={`${inter.variable} ${montserrat.variable} ${space.variable} font-body flex-col mx-auto max-w-full min-h-screen`}
 			>
 				<Providers>
 					<Header />

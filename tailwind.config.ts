@@ -24,9 +24,10 @@ module.exports = {
 							borderRadius: "0.25rem",
 							color: "#a855f7",
 							fontWeight: "400",
+							fontFamily: "var(--space-font)",
 						},
 						pre: {
-							backgroundColor: "black",
+							backgroundColor: "black!important",
 							"& code": {
 								backgroundColor: "black!important",
 								color: "white",
@@ -86,17 +87,19 @@ module.exports = {
 							color: "var(--foreground-rgb)",
 						},
 						pre: {
+							borderRadius: "1rem!important",
 							color: "var(--foreground-rgb)",
 							backgroundColor: "black",
 							"& code": {
-								backgroundColor: "black",
+								backgroundColor: "black!important",
 								color: "white",
 							},
 						},
 						code: {
 							backgroundColor: "rgba(255, 255, 255, 0.1)",
 							padding: "0.25rem",
-							borderRadius: "0.25rem",
+							borderRadius: "1rem!important",
+							fontFamily: "var(--space-font)!important",
 							fontWeight: "400",
 							color: "#ffd600",
 							"&::before": {
@@ -111,7 +114,8 @@ module.exports = {
 			}),
 			fontFamily: {
 				body: "var(--inter-font)",
-				heading: "var(--nunito-font)",
+				heading: "var(--montserrat-font)",
+				code: "var(--space-font)",
 			},
 		},
 	},
