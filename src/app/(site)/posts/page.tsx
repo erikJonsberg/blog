@@ -1,6 +1,10 @@
-import PostsGrid from "@/src/app/(site)/components/posts/posts-grid";
+import { SanityDocument } from "next-sanity";
+import Posts from "../components/posts/all-posts";
+import { postsQuery } from "@/src/sanity/lib/queries";
+import { sanityFetch } from "@/src/sanity/lib/fetch";
 
-export default function AllPosts() {
+export default async function AllPosts() {
+	const posts = await sanityFetch<SanityDocument[]>({ query: postsQuery });
 	return (
 		<div className='py-24 sm:py-32'>
 			<div className='mx-auto max-w-7xl px-6 lg:px-8'>
@@ -12,7 +16,7 @@ export default function AllPosts() {
 						Tips and tricks for building your next project and then some
 					</p>
 				</div>
-				<PostsGrid />
+				<Posts posts={posts} />
 			</div>
 		</div>
 	);

@@ -1,10 +1,25 @@
-import PostsGrid from "./components/posts/posts-grid";
-import WaterDropHero from "./components/layout/hero-2";
+import FeaturedPosts from "./components/posts/featured-posts";
+import Hero from "./components/layout/hero";
+import { postsQuery } from "@/src/sanity/lib/queries";
+import { sanityFetch, token } from "@/src/sanity/lib/fetch";
+import { SanityDocument } from "next-sanity";
+import { draftMode } from "next/headers";
+import PreviewPosts from "@/src/app/(site)/components/posts/preview-posts";
+import PreviewProvider from "@/src/app/(site)/components/providers/preview-provider";
 
 export default async function Home() {
+	const posts = await sanityFetch<SanityDocument[]>({ query: postsQuery });
+	const isDraftMode = draftMode().isEnabled;
+	if (isDraftMode && token) {
+		return (
+			<PreviewProvider token={token}>
+				<PreviewPosts posts={posts} />
+			</PreviewProvider>
+		);
+	}
 	return (
 		<main className='min-h-screen container mx-auto'>
-			<WaterDropHero />
+			<Hero />
 
 			<div className='relative mb-16'>
 				<div
@@ -16,7 +31,7 @@ export default async function Home() {
 				My Projects
 			</h2>
 			<div className='mt-5'>
-				<PostsGrid />
+				<FeaturedPosts posts={posts} />
 			</div>
 		</main>
 	);

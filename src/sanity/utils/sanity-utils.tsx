@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
-import { Post } from "../../types/post";
-import { client } from "./config/client";
+import { Post } from "../../../types/post";
+import { client } from "../lib/client";
 
 export async function getPosts(): Promise<Post[]> {
 	return client.fetch(

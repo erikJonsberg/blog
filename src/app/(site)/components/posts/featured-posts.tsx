@@ -1,12 +1,18 @@
-import { getPosts } from "@/src/sanity/sanity-utils";
+//import { getPosts } from "@/src/sanity/utils/sanity-utils";
 import Link from "next/link";
 import Image from "next/image";
+import type { SanityDocument } from "@sanity/client";
 
-export default async function PostsGrid() {
-	const posts = await getPosts();
+export default async function FeaturedPosts({
+	posts = [],
+}: {
+	posts: SanityDocument[];
+}) {
+	const title = posts.length === 1 ? `1 Post` : `${posts.length} Posts`;
 
 	return (
 		<section className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-24'>
+			<h1 className='text-2xl text-center p-4 font-bold'>{title}</h1>
 			<div className='mx-auto grid max-w-2xl grid-rows-1 grid-cols-1 gap-8 mt-10 lg:max-w-none lg:grid-cols-3'>
 				{posts.map((post) => (
 					<div key={post._id}>

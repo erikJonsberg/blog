@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { contactSchema } from "../../lib/yup-schema";
+import { contactSchema } from "../../utils/yup-schema";
 import { useFormik } from "formik";
 import { SuccessNotification, ErrorNotification } from "../ui/notifications";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";

@@ -13,9 +13,9 @@ import Logo from "./logo";
 import DarkModeSelect from "../ui/dark-mode-select";
 
 const navigation = [
-	{ name: "Home", href: "/" },
-	{ name: "Posts", href: "/posts" },
-	{ name: "Contact", href: "/contact" },
+	{ name: "01. Home", href: "/" },
+	{ name: "02. Posts", href: "/posts" },
+	{ name: "03. Contact", href: "/contact" },
 ];
 
 export default function Navigation() {
@@ -24,7 +24,7 @@ export default function Navigation() {
 	return (
 		<>
 			<nav
-				className='mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8'
+				className='mx-auto flex max-w-7xl items-center justify-between lg:px-8'
 				aria-label='Global'
 			>
 				<div className='flex items-center justify-center gap-x-12'>
@@ -36,7 +36,7 @@ export default function Navigation() {
 							<Link
 								key={item.name}
 								href={item.href}
-								className='text-sm font-semibold leading-6 dark:text-gray-50 text-gray-900'
+								className='font-code uppercase font-semibold leading-6 dark:text-gray-50 text-gray-900'
 							>
 								{item.name}
 							</Link>
@@ -56,7 +56,7 @@ export default function Navigation() {
 				<div className='hidden lg:flex items-center gap-x-12'>
 					<DarkModeSelect />
 					<Link
-						href='#'
+						href='/admin'
 						className='inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
 					>
 						Log in
@@ -69,7 +69,7 @@ export default function Navigation() {
 			</nav>
 			<Transition show={mobileMenuOpen} as={Fragment}>
 				<Dialog onClose={() => setMobileMenuOpen(false)}>
-					<div className='fixed inset-0 z-10' />
+					<div className='fixed inset-0 z-30' />
 					<Transition.Child
 						as={Fragment}
 						enter='transition ease-in-out duration-300 transform'
@@ -79,7 +79,7 @@ export default function Navigation() {
 						leaveFrom='translate-x-0'
 						leaveTo='translate-x-full'
 					>
-						<Dialog.Panel className='fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-50 dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'>
+						<Dialog.Panel className='fixed inset-y-0 right-0 z-30 w-full overflow-y-auto bg-gray-50 dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'>
 							<div className='flex items-center justify-between'>
 								<button
 									type='button'
@@ -105,7 +105,7 @@ export default function Navigation() {
 									</div>
 									<div className='py-6 flex items-center justify-between w-32'>
 										<Link
-											href='#'
+											href='/admin'
 											className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 dark:text-gray-50 text-gray-900 dark:hover:bg-gray-900 hover:bg-gray-50'
 										>
 											Log in

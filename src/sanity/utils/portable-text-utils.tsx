@@ -1,9 +1,9 @@
 import Image from "next/image";
 import urlBuilder from "@sanity/image-url";
 import { getImageDimensions } from "@sanity/asset-utils";
-import { client } from "./config/client";
+import { client } from "../lib/client";
 import { PortableText } from "@portabletext/react";
-import { Code } from "./syntax-highlighter";
+import { Code } from "../components/syntax-highlighter";
 
 // Barebones lazy-loaded image component
 const imageComponent = ({ value, isInline }: any) => {
